@@ -24,7 +24,7 @@ Requires: util-linux
 A python library that can be used to gather all sorts of information about the storage devices connected to a system.
 
 %prep
-%autosetup -c getdevinfo-%{version}
+%setup -qn getdevinfo-%{version}
 
 %build
 %py_build
