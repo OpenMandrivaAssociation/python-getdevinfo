@@ -26,11 +26,16 @@ A python library that can be used to gather all sorts of information about the s
 %prep
 %autosetup -c getdevinfo
 
+%build
+%py_build
+
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p %{buildroot}/%{python_sitelib}
-cp -rv getdevinfo getdevinfo-1.0.8.dist-info %{buildroot}/%{python_sitelib}
-chmod -R a+rx %{buildroot}/%{python_sitelib}/getdevinfo
+%py_install
+
+#rm -rf $RPM_BUILD_ROOT
+#mkdir -p %{buildroot}/%{python_sitelib}
+#cp -rv getdevinfo getdevinfo-1.0.8.dist-info %{buildroot}/%{python_sitelib}
+#chmod -R a+rx %{buildroot}/%{python_sitelib}/getdevinfo
 
 %files
 %{python_sitelib}/getdevinfo
