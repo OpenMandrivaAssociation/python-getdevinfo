@@ -40,4 +40,4 @@ A python library that can be used to gather all sorts of information about the s
 
 %files
 %{python_sitelib}/getdevinfo
-%{python_sitelib}/getdevinfo-1.0.8.dist-info
+#%{python_sitelib}/getdevinfo-1.0.8.dist-info
