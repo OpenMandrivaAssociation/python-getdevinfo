@@ -1,38 +1,37 @@
-Name:           python3-getdevinfo
+Name:           python-getdevinfo
 Version:        1.0.8
-Release:        1%{?dist}
+Release:        1
 Summary:        A python library that can be used to gather all sorts of information about the storage devices connected to a system
 Group:          Applications/System
 License:        GPLv3+
 URL:            http://www.hamishmb.com/
-Source0:        %{name}-%{version}.tar.gz
+Source0:        https://www.hamishmb.com/files/Downloads/getdevinfo/1.0.8/Python/getdevinfo-%{version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python3, python3-devel
-Requires:       python3, lshw, python3-beautifulsoup4, python3-lxml, coreutils >= 8.21, lvm2, binutils, util-linux
+BuildRequires:  python
+BuildRequires:  pkgconfig(python)
+
+Requires: python
+Requires: lshw
+Requires: python3dist(beautifulsoup4)
+Requires: python3dist(lxml)	
+Requires: coreutils
+Requires: lvm2 
+Requires: binutils
+Requires: util-linux
 
 %description
 A python library that can be used to gather all sorts of information about the storage devices connected to a system.
 
 %prep
-%autosetup -c python3-getdevinfo
+%autosetup -c getdevinfo
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p %{buildroot}/%{python3_sitelib}
-cp -rv getdevinfo getdevinfo-1.0.8.dist-info %{buildroot}/%{python3_sitelib}
-chmod -R a+rx %{buildroot}/%{python3_sitelib}/getdevinfo
+mkdir -p %{buildroot}/%{python_sitelib}
+cp -rv getdevinfo getdevinfo-1.0.8.dist-info %{buildroot}/%{python_sitelib}
+chmod -R a+rx %{buildroot}/%{python_sitelib}/getdevinfo
 
 %files
-/%{python3_sitelib}/getdevinfo
-/%{python3_sitelib}/getdevinfo-1.0.8.dist-info
-
-%changelog
-* Thu Oct 18 2018 Hamish McIntyre-Bhatty hamishmb@live.co.uk 1.2
-- Remove preun section.
-* Mon Sep 10 2018 Hamish McIntyre-Bhatty hamishmb@live.co.uk 1.1
-- Update to use python3_sitelib macro.
-- Add preun section.
-* Fri Jan 12 2018 Hamish McIntyre-Bhatty hamishmb@live.co.uk 1.0
-- Created initial package.
-s
+%{python_sitelib}/getdevinfo
+%{python_sitelib}/getdevinfo-1.0.8.dist-info
