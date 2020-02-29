@@ -10,6 +10,7 @@ BuildArch:      noarch
 
 BuildRequires:  python
 BuildRequires:  pkgconfig(python)
+BuildRequires:  python3dist(setuptools)
 
 Requires: python
 Requires: lshw
