@@ -12,6 +12,7 @@ BuildRequires:  python
 BuildRequires:  pkgconfig(python)
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  lshw
+BuildRequires:  lvm2
 
 Requires: python
 Requires: lshw
