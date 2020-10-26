@@ -1,5 +1,5 @@
 Name:           python-getdevinfo
-Version:        1.0.8
+Version:        1.1.0
 Release:        1
 Summary:        A python library that can be used to gather all sorts of information about the storage devices connected to a system
 Group:          Applications/System
@@ -11,6 +11,8 @@ BuildArch:      noarch
 BuildRequires:  python
 BuildRequires:  pkgconfig(python)
 BuildRequires:  python3dist(setuptools)
+BuildRequires:  lshw
+BuildRequires:  lvm2
 
 Requires: python
 Requires: lshw
