@@ -1,6 +1,6 @@
 Name:           python-getdevinfo
 Version:        1.1.0
-Release:        1
+Release:        2
 Summary:        A python library that can be used to gather all sorts of information about the storage devices connected to a system
 Group:          Applications/System
 License:        GPLv3+
