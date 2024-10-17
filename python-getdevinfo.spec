@@ -4,7 +4,7 @@ Release:        2
 Summary:        A python library that can be used to gather all sorts of information about the storage devices connected to a system
 Group:          Applications/System
 License:        GPLv3+
-URL:            http://www.hamishmb.com/
+URL:            https://www.hamishmb.com/
 Source0:        https://www.hamishmb.com/files/Downloads/getdevinfo/1.0.8/Python/getdevinfo-%{version}.tar.gz
 BuildArch:      noarch
 
