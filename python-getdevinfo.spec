@@ -1,46 +1,43 @@
-Name:           python-getdevinfo
-Version:        1.1.0
-Release:        4
-Summary:        A python library that can be used to gather all sorts of information about the storage devices connected to a system
-Group:          Applications/System
-License:        GPLv3+
-URL:            https://www.hamishmb.com/
-Source0:        https://www.hamishmb.com/files/Downloads/getdevinfo/1.0.8/Python/getdevinfo-%{version}.tar.gz
-BuildArch:      noarch
+%define module getdevinfo
 
-BuildRequires:  python
-BuildRequires:  pkgconfig(python)
-BuildRequires:  python3dist(setuptools)
-BuildRequires:  lshw
-BuildRequires:  lvm2
+Name:		python-getdevinfo
+Version:	2.0.1
+Release:	1
+Summary:	A device information gatherer for Linux
+Group:		Applications/System
+License:	GPL-3.0-or-later
+URL:		https://www.hamishmb.com/
+Source0:	https://www.hamishmb.com/files/downloads/%{module}/%{version}/Python/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-Requires: python
+BuildSystem:	python
+BuildArch:	noarch
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	lshw
+BuildRequires:	lvm2
+BuildRequires:	util-linux
 Requires: lshw
-Requires: python3dist(beautifulsoup4)
-Requires: python3dist(lxml)	
+Requires: python%{pyver}dist(beautifulsoup4)
+Requires: python%{pyver}dist(lxml)
 Requires: coreutils
 Requires: lvm2 
 Requires: binutils
 Requires: util-linux
 
 %description
-A python library that can be used to gather all sorts of information about the storage devices connected to a system.
+A device information gatherer for Linux.
 
-%prep
-%setup -qn getdevinfo-%{version}
+Working on Linux, this script makes use of lshw, lvdisplay and blkid to
+get a comprehensive amount of disk information.
 
-%build
-%py_build
+This information is available in a structured dictionary for ease of use.
 
-%install
-%py_install
-
-#rm -rf $RPM_BUILD_ROOT
-#mkdir -p %{buildroot}/%{python_sitelib}
-#cp -rv getdevinfo getdevinfo-1.0.8.dist-info %{buildroot}/%{python_sitelib}
-#chmod -R a+rx %{buildroot}/%{python_sitelib}/getdevinfo
+%prep -a
+# Remove bundled egg-info
+rm -rf %{module}.egg-info
 
 %files
-%{python_sitelib}/getdevinfo
-%{python_sitelib}/getdevinfo-%{version}-py*.egg*
-#%{python_sitelib}/getdevinfo-1.0.8.dist-info
+%doc README.md
+%license LICENSE
+%{python_sitelib}/%{module}
+%{python_sitelib}/%{module}-%{version}*.*-info
