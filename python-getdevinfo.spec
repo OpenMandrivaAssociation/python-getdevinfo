@@ -2,7 +2,7 @@
 
 Name:		python-getdevinfo
 Version:	2.0.1
-Release:	1
+Release:	2
 Summary:	A device information gatherer for Linux
 Group:		Applications/System
 License:	GPL-3.0-or-later
@@ -11,7 +11,7 @@ Source0:	https://www.hamishmb.com/files/downloads/%{module}/%{version}/Python/%{
 
 BuildSystem:	python
 BuildArch:	noarch
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	lshw
 BuildRequires:	lvm2
